@@ -1,0 +1,85 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    place-items: center;
+
+    height: 100vh;
+
+    background-color: black;
+}
+
+.spinner {
+    z-index: 1;
+    position: relative;
+
+    width: 300px;
+    height: 300px;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 2rem;
+    overflow: hidden;
+
+    animation: text-color 1.2s ease-in-out infinite alternate;
+}
+
+.spinner__sector {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    border: 1rem solid transparent;
+    mix-blend-mode: overlay;
+    animation: rotate var(--duration) var(--timing) infinite;
+    pointer-events: none;
+}
+
+.spinner__sector--red {
+    border-top-color: hsl(0, 100%, 50%);
+    --duration: 2s;
+    --timing: ease-in-out;
+}
+
+.spinner__sector--green {
+    border-top-color: hsl(120, 100%, 50%);
+    --duration: 1.5s;
+    --timing: ease-in;
+}
+
+.spinner__sector--blue {
+    border-top-color: hsl(195, 100%, 50%);
+    --duration: 2.5s;
+    --timing: ease-out;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes text-color {
+    0% {
+        color: hsla(0, 0%, 100%, 0.1);
+    }
+
+    50% {
+        color: hsla(0, 0%, 100%, 0.5);
+    }
+
+    100% {
+        color: hsla(0, 0%, 100%, 1);
+    }
+}
