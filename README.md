@@ -1,4 +1,4 @@
-Good looking Loading Spinner built with CSS. 
+A good looking Loading Spinner built with CSS. 
 
 This component can be used on various sites that require loading.
 
